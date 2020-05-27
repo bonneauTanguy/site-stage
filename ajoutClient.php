@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>ajoutClients</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -129,6 +129,12 @@
       </li> -->
 	  
 	  <li class="nav-item">
+        <a class="nav-link" href="Accueil.php">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Acceuil</span></a>
+      </li>
+	  
+	  <li class="nav-item">
         <a class="nav-link" href="agenda.php">
           <i class="fas fa-fw fa-bookmark"></i>
           <span>Agenda</span></a>
@@ -141,15 +147,9 @@
       </li>
 	  
 	  <li class="nav-item">
-        <a class="nav-link" href="connexion.php">
+        <a class="nav-link" href="produit.php">
           <i class="fas fa-fw fa-key"></i>
-          <span>Connexion</span></a>
-      </li>
-	  
-	  <li class="nav-item">
-        <a class="nav-link" href="Accueil.php">
-          <i class="fas fa-fw fa-home"></i>
-          <span>Acceuil</span></a>
+          <span>Produit</span></a>
       </li>
 	  
       <!-- Divider -->

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Blank</title>
+  <title>Accueil</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,25 +35,20 @@
         </div>
         <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
       </a>
-
       <!-- Divider 
       <hr class="sidebar-divider my-0">
-
       <!-- Nav Item - Dashboard 
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
       <!-- Divider 
       <hr class="sidebar-divider">
-
       <!-- Heading 
       <div class="sidebar-heading">
         Interface
       </div>
-
       <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -68,7 +63,6 @@
           </div>
         </div>
       </li>
-
       <!-- Nav Item - Utilities Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -85,15 +79,12 @@
           </div>
         </div>
       </li>
-
       <!-- Divider 
       <hr class="sidebar-divider">
-
       <!-- Heading 
       <div class="sidebar-heading">
         Addons
       </div>
-
       <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -113,20 +104,24 @@
           </div>
         </div>
       </li>
-
       <!-- Nav Item - Charts 
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>
-
       <!-- Nav Item - Tables 
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li> -->
+	  
+	  <li class="nav-item">
+        <a class="nav-link" href="Accueil.php">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Accueil</span></a>
+      </li>
 	  
 	  <li class="nav-item">
         <a class="nav-link" href="agenda.php">
@@ -141,15 +136,9 @@
       </li>
 	  
 	  <li class="nav-item">
-        <a class="nav-link" href="connexion.php">
+        <a class="nav-link" href="produit.php">
           <i class="fas fa-fw fa-key"></i>
-          <span>Connexion</span></a>
-      </li>
-	  
-	  <li class="nav-item">
-        <a class="nav-link" href="Accueil.php">
-          <i class="fas fa-fw fa-home"></i>
-          <span>Acceuil</span></a>
+          <span>Produit</span></a>
       </li>
 	  
       <!-- Divider -->
@@ -323,13 +312,14 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php
-                    if (isset($_GET["uname"]) && isset($_GET["psw"]) && isset($_GET["remember"]))  {
-                        $login = $_GET["uname"];
-                        echo "$login";
-                    }
-                    else {
-                        echo 'Variable _GET non affectée';
-                    }
+				session_start();
+				if(isset($_SESSION['sess_user_id']) && $_SESSION['sess_user_id'] != "") {
+					 echo '<h1>Welcome '.$_SESSION['sess_name'].'</h1>';
+					 echo '<h4><a href="logout.php">Logout</a></h4>';
+				} else { 
+					 header('location:connexion.php');
+				}
+
 ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>

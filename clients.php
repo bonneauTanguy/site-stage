@@ -129,6 +129,12 @@
       </li> -->
 	  
 	  <li class="nav-item">
+        <a class="nav-link" href="Accueil.php">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Accueil</span></a>
+      </li>
+	  
+	  <li class="nav-item">
         <a class="nav-link" href="agenda.php">
           <i class="fas fa-fw fa-bookmark"></i>
           <span>Agenda</span></a>
@@ -141,15 +147,9 @@
       </li>
 	  
 	  <li class="nav-item">
-        <a class="nav-link" href="connexion.php">
+        <a class="nav-link" href="produit.php">
           <i class="fas fa-fw fa-key"></i>
-          <span>Connexion</span></a>
-      </li>
-	  
-	  <li class="nav-item">
-        <a class="nav-link" href="Accueil.php">
-          <i class="fas fa-fw fa-home"></i>
-          <span>Acceuil</span></a>
+          <span>Produit</span></a>
       </li>
 	  
       <!-- Divider -->
@@ -422,6 +422,14 @@
               </span>
             <span class="text">Supprimer un client</span>
           </button>
+		  
+		  
+		  <a href="pdf.php" class="btn btn-light btn-icon-split">
+            <span class="icon text-gray-600">
+              <i class="fas fa-arrow-right"></i>
+              </span>
+            <span class="text">PDF</span>
+          </a>
         </div>
         <!-- /.container-fluid -->
 
