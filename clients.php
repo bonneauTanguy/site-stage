@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -149,7 +149,7 @@
 	  <li class="nav-item">
         <a class="nav-link" href="produit.php">
           <i class="fas fa-fw fa-key"></i>
-          <span>Produit</span></a>
+          <span>Produits</span></a>
       </li>
 	  
       <!-- Divider -->
@@ -363,8 +363,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">Exemple de la base de données venant de <a target="_blank" href="https://datatables.net">DataTables.net</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Tables des clients</h1>
+          <!--<p class="mb-4">Exemple de la base de données venant de <a target="_blank" href="https://datatables.net">DataTables.net</a>.</p>-->
 		<?php
 			require("fonctionsSQL.php");
 			//Connexion à la base de données
