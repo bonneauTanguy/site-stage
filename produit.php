@@ -419,6 +419,13 @@
             <span class="text">Supprimer un produit</span>
           </button>
 		  
+		  <a href="modifierProduit.php" class="btn btn-light btn-icon-split">
+            <span class="icon text-gray-600">
+              <i class="fas fa-arrow-right"></i>
+              </span>
+            <span class="text">modifier un produit</span>
+          </a>
+		  
 		  
 		  <a href="pdfProduit.php" class="btn btn-light btn-icon-split">
             <span class="icon text-gray-600">
