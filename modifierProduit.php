@@ -364,6 +364,13 @@
         <div class="container-fluid">
 			<form action="" method="post">
 				<div class="form-group">
+					<select name="nom du produit"> 
+						<?php 
+							require("fonctionsSQL.php");
+							$connexion = connexion ();
+							$sql = mysqli_query($connection, "SELECT * FROM produit");
+						?>
+					<option value="nom du produit1"><?php echo $row['nomProduit']; ?></option>
 					<label>Nom du produit</label>
 					<input type="text" class="form-control" name="nomProduit" value="" required>
 					<label>Tarif achat HT</label>
@@ -374,7 +381,7 @@
 					<input type="text" class="form-control" name="fournisseur" value="">	
 					<label >Stock</label>
 					<input type="text" class="form-control" name="stock" value="">
-					<button type="submit" class="btn btn-primary" id="ste" name="ste" value="insert">Ajouter</button>
+					<button type="submit" class="btn btn-primary" id="ste" name="ste" value="insert">Modifier</button>
 				</div>
 			</form>
 			
@@ -389,10 +396,10 @@
 					$id = $_POST["type"];
 					require("fonctionsSQL.php");
 					$connexion = connexion ();
-					$request = $connexion->prepare("INSERT INTO produit (id_produit,nomProduit, tarifAchatHT, tarifReventeTTC, fournisseur, stock) VALUES ('$id', '$nom', '$achatHT', '$reventeTTC', '$nomFournisseur', '$enStock');");
+					$request = $connexion->prepare("UPDATE produit SET nomProduit='$nom', tarifAchatHT='$achatHT', tarifReventeTTC, fournisseur='$nomFournisseur', stock='$enStock'");
 					$request->execute();
 					$connexion = null;
-					echo("Produit ajouté");
+					echo("Produit modifié");
 				}
 			?>
 			
