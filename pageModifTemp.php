@@ -7,7 +7,7 @@
 			<?php
 				require("fonctionsSQL.php");
 				$connexion = connexion ();
-				$request = $connexion->prepare("SELECT id_produit, nomProduit from produit;");
+				$request = $connexion->query("SELECT id_produit, nomProduit from produit;");
 				echo '<select name="nomProduit">';
 					while ($donnees = $request->fetch())
 					{
@@ -15,9 +15,8 @@
 						echo '<option value="'.$donnees['id_produit'].'">'.$donnees['nomProduit'].'</option>';
 						
 					}
-					echo'<option value=4>test</option>';
 				echo '</select>';
-?>
+			?>
             <input type="submit" name="Submit" value="Select" />  
         </form>  
     </body>  
