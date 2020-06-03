@@ -415,6 +415,13 @@
               </span>
             <span class="text">Ajouter un client</span>
           </a>
+		  	
+			<a href="modifierClient.php" class="btn btn-light btn-icon-split">
+            <span class="icon text-gray-600">
+              <i class="fas fa-arrow-right"></i>
+              </span>
+            <span class="text">Modifier un client</span>
+          </a>
 		  
 		<button class="btn btn-light btn-icon-split" onclick="ButtonClick()">
             <span class="icon text-gray-600">
