@@ -1,21 +1,23 @@
 <html>  
     <head>  
-    <title>Drop Down List</title>  
+    <title>Dynamic Drop Down List</title>  
     </head>  
-    <BODY>  
+    <body>  
         <form id="form1" name="form1" method="post">
 			<?php
 				require("fonctionsSQL.php");
 				$connexion = connexion ();
-				$reponse = mysql_query("SELECT * from produit");
+				$request = $connexion->prepare("SELECT id_produit, nomProduit from produit;");
 				echo '<select name="nomProduit">';
-					while ($donnees = mysql_fetch_array($reponse) )
+					while ($donnees = $request->fetch())
 					{
+						echo hdqfbuswdf;
 						echo '<option value="'.$donnees['id_produit'].'">'.$donnees['nomProduit'].'</option>';
 						
 					}
+					echo'<option value=4>test</option>';
 				echo '</select>';
-
+?>
             <input type="submit" name="Submit" value="Select" />  
         </form>  
     </body>  
