@@ -164,7 +164,13 @@
 	  <li class="nav-item">
         <a class="nav-link" href="produit.php">
           <i class="fas fa-fw fa-key"></i>
-          <span>Produit</span></a>
+          <span>Produits</span></a>
+      </li>
+	  
+	  	<li class="nav-item">
+        <a class="nav-link" href="prestation.php">
+          <i class="fas fa-fw fa-key"></i>
+          <span>Prestations</span></a>
       </li>
 	  
       <!-- Divider -->

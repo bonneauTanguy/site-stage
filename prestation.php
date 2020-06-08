@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Produits</title>
+  <title>Prestations</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -151,8 +151,8 @@
           <i class="fas fa-fw fa-key"></i>
           <span>Produits</span></a>
       </li>
-	  
-	  	<li class="nav-item">
+	  	  
+		<li class="nav-item">
         <a class="nav-link" href="prestation.php">
           <i class="fas fa-fw fa-key"></i>
           <span>Prestations</span></a>
@@ -369,7 +369,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Tables des produits</h1>
+          <h1 class="h3 mb-2 text-gray-800">Tables des prestations</h1>
           <!--<p class="mb-4">Exemple de la base de données venant de <a target="_blank" href="https://datatables.net">DataTables.net</a>.</p>-->
 		<?php
 			require("fonctionsSQL.php");
@@ -377,7 +377,7 @@
 			$connexion = connexion ();
 			
 			$select = '*';
-			$from = 'produit';
+			$from = 'prestation';
 			$where = null;
 			$groupBy = null;
 			$having = null;
@@ -387,32 +387,20 @@
 			
 			echo '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead><tr>
-						<th colspan="1">Id_produit</th>
-						<th colspan="1">nomProduit</th>
-						<th colspan="1">tarifAchatHT</th>
-						<th colspan="1">tarifReventeTTC</th>
-						<th colspan="1">fournisseur</th>
-						<th colspan="1">stock</th>
-						<th colspan="1">modifier</th>
+						<th colspan="1">Id_prestation</th>
+						<th colspan="1">libelle</th>
 					</tr></thead>
 				<tbody>';
 			while($unAdherent){
 				echo "<tr> 
 						<td> $unAdherent[0] </td> 
 						<td> $unAdherent[1] </td> 
-						<td> $unAdherent[2] </td> 
-						<td> $unAdherent[3] </td> 
-						<td> $unAdherent[4] </td> 
-						<td> $unAdherent[5] </td> 
 						<td>
 						   <form action='pageModifTemp.php' method='POST'>
-								<input type='hidden' value=$unAdherent[0] name='id_produit'>
-								<input type='hidden' value=$unAdherent[1] name='nomProduit'>
-								<input type='hidden' value=$unAdherent[2] name='tarifAchatHT'>
-								<input type='hidden' value=$unAdherent[3] name='tarifReventeTTC'>
-								<input type='hidden' value=$unAdherent[4] name='fournisseur'>
-								<input type='hidden' value=$unAdherent[5] name='stock'>
-								<input type='submit' value='Modifier' name='submitmodifProduit'>
+								<input type='hidden' value=$unAdherent[0] name='id_prestation'>
+								<input type='hidden' value=$unAdherent[1] name='libelle'>
+
+								<input type='submit' value='Modifier' name='submitmodifPrestation'>
 							</form>
 						</td>
 					</tr>";
@@ -423,25 +411,25 @@
 			$curseurAdherents = null;
 			
 		?>
-		  <a href="ajoutProduit.php" class="btn btn-light btn-icon-split">
+		  <a href="ajoutPrestation.php" class="btn btn-light btn-icon-split">
             <span class="icon text-gray-600">
               <i class="fas fa-arrow-right"></i>
               </span>
-            <span class="text">Ajouter un produit</span>
+            <span class="text">Ajouter une prestation</span>
           </a>
 		  
 		<button class="btn btn-light btn-icon-split" onclick="ButtonClick()">
             <span class="icon text-gray-600">
               <i class="fas fa-arrow-right"></i>
               </span>
-            <span class="text">Supprimer un produit</span>
+            <span class="text">Supprimer une prestation</span>
           </button>
 		  
 		  <a href="pageModifTemp.php" class="btn btn-light btn-icon-split" >
             <span class="icon text-gray-600">
               <i class="fas fa-arrow-right"></i>
               </span>
-            <span class="text">modifier un produit</span>
+            <span class="text">modifier une prestation</span>
           </a>
 		  
 		  
