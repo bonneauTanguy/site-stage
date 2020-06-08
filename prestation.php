@@ -376,8 +376,8 @@
 			//Connexion à la base de données
 			$connexion = connexion ();
 			
-			$select = '*';
-			$from = 'prestation';
+			$select = 'id_prestation, libelle, prix, annee';
+			$from = 'prestation INNER JOIN tarifer ON id_prestation = id_item';
 			$where = null;
 			$groupBy = null;
 			$having = null;
@@ -389,16 +389,22 @@
 					<thead><tr>
 						<th colspan="1">Id_prestation</th>
 						<th colspan="1">libelle</th>
+						<th colspan="1">prix</th>
+						<th colspan="1">année</th>
 					</tr></thead>
 				<tbody>';
 			while($unAdherent){
 				echo "<tr> 
 						<td> $unAdherent[0] </td> 
 						<td> $unAdherent[1] </td> 
+						<td> $unAdherent[2] </td>
+						<td> $unAdherent[3] </td>
 						<td>
 						   <form action='pageModifTemp.php' method='POST'>
 								<input type='hidden' value=$unAdherent[0] name='id_prestation'>
 								<input type='hidden' value=$unAdherent[1] name='libelle'>
+								<input type='hidden' value=$unAdherent[2] name='annee'>
+								<input type='hidden' value=$unAdherent[3] name='prix'>
 
 								<input type='submit' value='Modifier' name='submitmodifPrestation'>
 							</form>
