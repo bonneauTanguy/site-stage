@@ -544,15 +544,6 @@
 			});
 			document.location.reload(true);
 		}
-		function ButtonClick1()
-		{
-			$.post("fonctionsSQL.php",
-			{
-				function: "select",
-				id: data
-			});
-			document.location.reload(true);
-		}
 	</script>
   
 </body>
