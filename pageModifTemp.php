@@ -2,29 +2,16 @@
     <head>  
     <title>Modifier produit</title>  
     </head>  
-    <body>  
+    <body> 
+		
         <form id="form1" name="form1" method="post">
 			<?php
-				require("fonctionsSQL.php");
-				$connexion = connexion ();
-				$request = $connexion->query("SELECT * from produit");
-				echo '<select name="nomProduit">';
-					while ($donnees = $request->fetch())
-					{
-						echo '<option value="'.$donnees['id_produit'].'">'.$donnees['nomProduit'].'</option>';
-					}
-				echo '</select>';
-				if (isset($_GET["selection"])) {
-				//$resultList = $connexion->prepare("SELECT * from produit where id_produit='$resultList'");
-				$resultList = $connexion->prepare('SELECT * FROM produit WHERE id_produit = ?');
-				$resultList->execute(array($_GET['id_produit']));
-				var_dump($resultList)
-				}
+				print_r($_POST);
+				$id = $_POST['id_produit'];
 			?>
-			<button type="submit" class="btn btn-primary" id="GET_produit" name="selection">select</button>
 			</br>
 			<label>Nom du produit</label>
-			<input type="text" class="form-control" name="nomProduit" value="<?php echo $resultList['nomProduit']; ?>" required>
+			<input type="text" class="form-control" name="nomProduit" value="" required>
 			</br>
 			<label>Tarif achat HT</label>
 			<input type="text" class="form-control" name="tarifHT" value=""required>
@@ -37,7 +24,7 @@
 			</br>
 			<label >Stock</label>
 			<input type="text" class="form-control" name="stock" value="">
-			<button type="submit" class="btn btn-primary" id="ste" name="ste" value="update">Modifier</button>
+			<button type="submit" class="btn btn-primary" id="ste" name="ste" value="update">Modifier </button>
 			</br>
 			
 			<?php
@@ -51,7 +38,7 @@
 				$id = $_POST["type"];
 				require("fonctionsSQL.php");
 				$connexion = connexion ();
-				$request = $connexion->prepare("UPDATE produit SET nomProduit='$nom', tarifAchatHT='$achatHT', tarifReventeTTC, fournisseur='$nomFournisseur', stock='$enStock'");
+				$request = $connexion->prepare("UPDATE produit SET nomProduit='$nom', tarifAchatHT='$achatHT', tarifReventeTTC='$reventeTTC', fournisseur='$nomFournisseur', stock='$enStock' WHERE id_produit='$id'");
 				$request->execute();
 				$connexion = null;
 				echo("Produit modifié");
