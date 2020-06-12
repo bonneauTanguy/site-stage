@@ -324,19 +324,19 @@
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
+            <!-- Nav Item - User Information 
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php
-                    if (isset($_GET["uname"]) && isset($_GET["psw"]) && isset($_GET["remember"]))  {
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">--><?php
+                    /*if (isset($_GET["uname"]) && isset($_GET["psw"]) && isset($_GET["remember"]))  {
                         $login = $_GET["uname"];
                         echo "$login";
                     }
                     else {
                         echo 'Variable _GET non affectée';
-                    }
+                    }*/
 ?></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <!--<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">-->
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
