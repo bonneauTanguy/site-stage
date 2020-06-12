@@ -376,7 +376,7 @@
 			//Connexion à la base de données
 			$connexion = connexion ();
 			
-			$select = 'id_prestation, libelle, prix, annee';
+			$select = '*';
 			$from = 'prestation INNER JOIN tarifer ON id_prestation = id_item';
 			$where = null;
 			$groupBy = null;
@@ -387,25 +387,27 @@
 			
 			echo '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead><tr>
-						<th colspan="1">id_prestation</th>
+						<th colspan="1">id</th>
 						<th colspan="1">nom prestation</th>
-						<th colspan="1">prix</th>
 						<th colspan="1">année</th>
+						<th colspan="1">prix</th>
 						<th colspan="1">action</th>
 					</tr></thead>
 				<tbody>';
 			while($unAdherent){
 				echo "<tr> 
-						<td> $unAdherent[0] </td> 
+						<td> $unAdherent[0] </td>
 						<td> $unAdherent[1] </td> 
-						<td> $unAdherent[2] </td>
-						<td> $unAdherent[3] </td>
+						<td> $unAdherent[3] </td> 
+						<td> $unAdherent[4] </td>
+
 						<td>
-						   <form action='pageModifTemp.php' method='POST'>
+						   <form action='modifierPrestation.php' method='POST'>
 								<input type='hidden' value=$unAdherent[0] name='id_prestation'>
 								<input type='hidden' value=$unAdherent[1] name='libelle'>
-								<input type='hidden' value=$unAdherent[2] name='annee'>
+								<input type='hidden' value=$unAdherent[2] name='id_item'>
 								<input type='hidden' value=$unAdherent[3] name='prix'>
+								<input type='hidden' value=$unAdherent[4] name='annee'>
 
 								<input type='submit' value='Modifier' name='submitmodifPrestation'>
 							</form>
@@ -431,14 +433,6 @@
               </span>
             <span class="text">Supprimer une prestation</span>
           </button>
-		  
-		  <a href="pageModifTemp.php" class="btn btn-light btn-icon-split" >
-            <span class="icon text-gray-600">
-              <i class="fas fa-arrow-right"></i>
-              </span>
-            <span class="text">modifier une prestation</span>
-          </a>
-		  
 		  
 		  <a href="pdfPrestation.php" class="btn btn-light btn-icon-split">
             <span class="icon text-gray-600">
@@ -539,15 +533,7 @@
 			});
 			document.location.reload(true);
 		}
-		function ButtonClick1()
-		{
-			$.post("fonctionsSQL.php",
-			{
-				function: "select",
-				id: data
-			});
-			document.location.reload(true);
-		}
+
 	</script>
   
 </body>
