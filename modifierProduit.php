@@ -152,6 +152,18 @@
           <span>Produits</span></a>
       </li>
 	  
+	  <li class="nav-item">
+        <a class="nav-link" href="prestation.php">
+          <i class="fas fa-fw fa-key"></i>
+          <span>Prestations</span></a>
+      </li>
+	  
+	  <li class="nav-item">
+        <a class="nav-link" href="encaissement.php">
+          <i class="fas fa-fw fa-key"></i>
+          <span>Encaissement</span></a>
+      </li>
+	  
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -319,17 +331,17 @@
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
+            <!-- Nav Item - User Information 
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php
-                    if (isset($_GET["uname"]) && isset($_GET["psw"]) && isset($_GET["remember"]))  {
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">--><?php
+                   /* if (isset($_GET["uname"]) && isset($_GET["psw"]) && isset($_GET["remember"]))  {
                         $login = $_GET["uname"];
                         echo "$login";
                     }
                     else {
                         echo 'Variable _GET non affectée';
-                    }
+                    }*/
 ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
@@ -361,31 +373,23 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-			<form action="" method="post">
-				<div class="form-group">
-					<select name="nom du produit"> 
-						<?php 
-							require("fonctionsSQL.php");
-							$connexion = connexion ();
-							$sql = mysqli_query($connection, "SELECT * FROM produit");
-						?>
-					<option value="nom du produit1"><?php echo $row['nomProduit']; ?></option>
-					<label>Nom du produit</label>
-					<input type="text" class="form-control" name="nomProduit" value="" required>
-					<label>Tarif achat HT</label>
-					<input type="text" class="form-control" name="tarifHT" value=""required>
-					<label>Tarif revente TTC</label>
-					<input type="text" class="form-control" name="tarifTTC" value="">
-					<label>Fournisseur</label>
-					<input type="text" class="form-control" name="fournisseur" value="">	
-					<label >Stock</label>
-					<input type="text" class="form-control" name="stock" value="">
-					<button type="submit" class="btn btn-primary" id="ste" name="ste" value="insert">Modifier</button>
-				</div>
-			</form>
-			
-			<?php
+		<div class="container-fluid">
+			<form id="form1" name="form1" method="post">
+				<label>id</label>
+				<input type="text" class="form-control" name="idProduit" value="<?php echo htmlspecialchars($_POST["id_produit"]); ?>" readonly>
+				<label>Nom du produit</label>
+				<input type="text" class="form-control" name="nomProduit" value="<?php echo htmlspecialchars($_POST["nomProduit"]); ?>" required>
+				<label>Tarif achat HT</label>
+				<input type="text" class="form-control" name="tarifHT" value="<?php echo htmlspecialchars($_POST["tarifAchatHT"]); ?>"required>
+				<label>Tarif revente TTC</label>
+				<input type="text" class="form-control" name="tarifTTC" value="<?php echo htmlspecialchars($_POST["tarifReventeTTC"]); ?>">
+				<label>Fournisseur</label>
+				<input type="text" class="form-control" name="fournisseur" value="<?php echo htmlspecialchars($_POST["fournisseur"]); ?>">	
+				<label >Stock</label>
+				<input type="text" class="form-control" name="stock" value="<?php echo htmlspecialchars($_POST["stock"]); ?>">
+				<button type="submit" class="btn btn-primary" id="ste" name="ste" value="update">Modifier </button>
+				
+				<?php
 				if(array_key_exists('ste',$_POST))
 				{
 					$nom = $_POST["nomProduit"];
@@ -393,19 +397,16 @@
 					$reventeTTC = $_POST["tarifTTC"];
 					$nomFournisseur = $_POST["fournisseur"];
 					$enStock = $_POST["stock"];
-					$id = $_POST["type"];
+					$id = $_POST["idProduit"];
 					require("fonctionsSQL.php");
 					$connexion = connexion ();
-					$request = $connexion->prepare("UPDATE produit SET nomProduit='$nom', tarifAchatHT='$achatHT', tarifReventeTTC, fournisseur='$nomFournisseur', stock='$enStock'");
+					$request = $connexion->prepare("UPDATE produit SET nomProduit='$nom', tarifAchatHT='$achatHT', tarifReventeTTC='$reventeTTC', fournisseur='$nomFournisseur', stock='$enStock' WHERE id_produit='$id'");
 					$request->execute();
 					$connexion = null;
-					echo("Produit modifié");
+					print_r($request);
 				}
-			?>
-			
-        </div>
-        <!-- /.container-fluid -->
-
+				?>
+			</form>
       </div>
       <!-- End of Main Content -->
 

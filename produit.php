@@ -158,6 +158,11 @@
           <span>Prestations</span></a>
       </li>
 	  
+	  <li class="nav-item">
+        <a class="nav-link" href="encaissement.php">
+          <i class="fas fa-fw fa-key"></i>
+          <span>Encaissement</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -405,7 +410,7 @@
 						<td> $unAdherent[4] </td> 
 						<td> $unAdherent[5] </td> 
 						<td>
-						   <form action='pageModifTemp.php' method='POST'>
+						   <form action='modifierProduit.php' method='POST'>
 								<input type='hidden' value=$unAdherent[0] name='id_produit'>
 								<input type='hidden' value=$unAdherent[1] name='nomProduit'>
 								<input type='hidden' value=$unAdherent[2] name='tarifAchatHT'>
@@ -436,15 +441,7 @@
               </span>
             <span class="text">Supprimer un produit</span>
           </button>
-		  
-		  <a href="pageModifTemp.php" class="btn btn-light btn-icon-split" >
-            <span class="icon text-gray-600">
-              <i class="fas fa-arrow-right"></i>
-              </span>
-            <span class="text">modifier un produit</span>
-          </a>
-		  
-		  
+
 		  <a href="pdfProduit.php" class="btn btn-light btn-icon-split">
             <span class="icon text-gray-600">
               <i class="fas fa-arrow-right"></i>
@@ -540,6 +537,15 @@
 			$.post("fonctionsSQL.php",
 			{
 				function: "sup",
+				id: data
+			});
+			document.location.reload(true);
+		}
+		function ButtonClick1()
+		{
+			$.post("fonctionsSQL.php",
+			{
+				function: "select",
 				id: data
 			});
 			document.location.reload(true);
